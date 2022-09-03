@@ -18,7 +18,7 @@ python3 -m venv venv
 git clone your-url.git
 ```
 
-#### Install requirementst
+#### Install requirements
 
 ```
  pip install -r requirements.txt
