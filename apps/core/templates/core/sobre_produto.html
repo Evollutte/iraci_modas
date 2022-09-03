@@ -1,0 +1,155 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sobre Produto.">
+
+  <title>Iraci Modas | Sobre Produto</title>
+
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  <link rel="preload" href="{% static 'css/style.min.css' %}" as="style">
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body id="sobre-produto">
+  <header class="header-bg">
+    <div class="header container">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'img/logo.png' %}" alt="Logo: Iraci Modas">
+      </a>
+
+      <nav aria-label="primary">
+        <ul class="header-menu font-1-m cor-0">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'galeria-todos' %}">Galeria</a></li>
+          <li><a href="{% url 'contato-sobre' %}">Contato</a></li>
+          <li><a href="{% url 'favoritos' %}">Favoritos</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="secondary">
+        <ul class="header-menu font-1-m cor-0">
+          <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'perfil' %}">Perfil</a>
+            {% else %}
+            <a href="{% url 'account_login' %}">Login</a>
+            {% endif %}
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="introducao-bg">
+    <div class="titulo-bg">
+      <div class="titulo container">
+        <p class="font-2-l-b cor-11">Aqui você pode adicionar aos seus favoritos</p>
+        <h1 class="font-1-xxl cor-10">
+          Sobre Produto</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="introducao container">
+      <div class="introducao-conteudo">
+        {% block content %}
+        <h1 class="font-1-xl cor-i-3 fadeInDown" data-anime="200">{{ product.name }}</h1>
+        <p class="font-2-l cor-9 fadeInDown" data-anime="400">
+          Gênero: <span class="font-2-m cor-i-3">{{ product.category }}</span>
+        </p>
+        <p class="font-2-l cor-9 fadeInDown" data-anime="400">
+          Tamanho: <span class="font-2-m cor-i-3">{{ product.size }}</span>
+        </p>
+        <p class="font-2-l cor-9 fadeInDown" data-anime="400">
+          Descrição: <span class="font-2-m cor-i-3">{{ product.description }}</span>
+        </p>
+        <p class="font-2-l cor-9 fadeInDown" data-anime="400">
+          Valor: <span class="font-2-m cor-i-3">{{ product.price }}</span>
+        </p>
+        <p class="font-2-l cor-9 fadeInDown" data-anime="400">
+          Quantidade disponível: <span class="font-2-m cor-i-3">{{ product.amount }}</span>
+        </p>
+
+        {% if user.is_authenticated %}
+        <form class="font-2-m cor-i-3 fadeInDown" action="" method="post" data-anime="400">
+          {% csrf_token %}
+          <button class="botao-produto-form col-2">Adicionar aos favoritos</button>
+        </form>
+        {% endif %}
+        <a class="botao fadeInDown" data-anime="600" href="">Comprar</a>
+      </div>
+      <picture>
+        <source media="(max-width: 800px)" srcset="{{ product.image.url }}">
+        <img src="{{ product.image.url }}" width="827" height="659" alt="Teste 5.">
+      </picture>
+      {% endblock %}
+    </div>
+  </main>
+
+  <footer class="footer-bg">
+    <div class="footer container">
+      <img src="{% static 'img/logo.png' %}" width="136" height="32" alt="Logo: Iraci Modas">
+      <div class="footer-contato">
+        <h3 class="font-2-l-b cor-0">Contato</h3>
+        <ul class="font-2-m cor-5">
+          <li><a href="tel:+5589994411460">+55 89 99441-1460</a></li>
+          <li>
+            <a href="mailto:iraciholanda4@gmail.com">iraciholanda4@gmail.com</a>
+          </li>
+          <li>Povoado Lagoa Grande - Zona Rural</li>
+          <li>Picos - PI</li>
+        </ul>
+        <div class="footer-redes">
+          <a href="https://www.instagram.com/iraci_modass/" target="_blank">
+            <img src="{% static 'img/redes/instagram.svg' %}" width="32" height="32" alt="Instagram">
+          </a>
+          <a href="https://www.facebook.com/iraci.holanda.9" target="_blank">
+            <img src="{% static 'img/redes/facebook.svg' %}" width="32" height="32" alt="Facebook">
+          </a>
+          <!-- <a href="./">
+            <img src="./img/redes/youtube.svg" width="32" height="32" alt="Youtube">
+          </a> -->
+        </div>
+      </div>
+      <div class="footer-informacoes">
+        <h3 class="font-2-l-b cor-0">Informações</h3>
+        <nav>
+          <ul class="font-1-m cor-5">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'galeria-todos' %}">Galeria</a></li>
+            <li><a href="{% url 'contato-sobre' %}">Contato</a></li>
+            <li><a href="{% url 'favoritos' %}">Favoritos</a></li>
+            <li>
+              {% if user.is_authenticated %}
+              <a href="{% url 'perfil' %}">Perfil</a>
+              {% else %}
+              <a href="{% url 'account_login' %}">Login</a>
+              {% endif %}
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy font-2-m cor-6">
+        Iraci Modas ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        | Alguns direitos reservados.
+      </p>
+    </div>
+  </footer>
+  <script src="{% static 'js/plugins/simple-anime.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

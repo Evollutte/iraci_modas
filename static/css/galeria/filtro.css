@@ -1,0 +1,64 @@
+.filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.filtro-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.filtro-menu a {
+  display: inline-block;
+  padding: 16px 0px;
+  position: relative;
+}
+
+.filtro-menu a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0px;
+  background: var(--cor-12);
+  margin-top: 4px;
+  transition: 0.3s;
+  position: absolute;
+}
+
+.filtro-menu a:hover::after,
+.filtro-menu a.filtro-ativo::after {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .filtro-menu {
+    gap: 20px;
+  }
+  .filtro-menu a {
+    background: var(--cor-i-1);
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+  .filtro-menu a:hover {
+    background-color: var(--cor-i-3);
+  }
+  .filtro-menu a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .filtro-menu {
+    gap: 12px;
+  }
+  .filtro-menu a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

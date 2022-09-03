@@ -1,0 +1,48 @@
+#slider {
+  max-width: 414px;
+  max-height: 827px;
+  position: relative;
+}
+
+#slider picture {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 800ms;
+}
+
+#slider picture.selected {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  #slider {
+    height: 50vw;
+  }
+}
+
+@media (max-width: 600px) {
+  #slider {
+    height: 60vw;
+  }
+}
+
+@media (max-width: 510px) {
+  #slider {
+    height: 70vw;
+  }
+}
+
+@media (max-width: 410px) {
+  #slider {
+    height: 80vw;
+  }
+}
+
+@media (max-width: 310px) {
+  #slider {
+    height: 100vw;
+  }
+}

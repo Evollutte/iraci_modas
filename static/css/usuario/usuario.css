@@ -1,0 +1,66 @@
+.usuario {
+  display: flex;
+  justify-content: center;
+}
+
+.usuario-formulario {
+  padding: 60px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+  border-radius: 5px;
+  background: var(--cor-0);
+}
+
+.usuario-formulario .form-check-label {
+  /*font: 400 1rem/1.5 "Poppins", sans-serif;*/
+  margin-left: 20px;
+  /*border-radius: 4px;*/
+  cursor: pointer;
+  display: inline-block;
+}
+
+.usuario-formulario .form-check-input:checked + .form-check-label {
+  color: var(--cor-11);
+}
+
+.usuario-formulario .form-check-label::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--cor-6);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.usuario-formulario .form-check-input:checked + .form-check-label::before {
+  border-color: var(--cor-7);
+  box-shadow: inset 0 0 0 3px var(--cor-0), inset 0 0 0 6px var(--cor-7);
+}
+
+.usuario-formulario .form-check-input {
+  opacity: 0;
+  /*position: absolute;*/
+  pointer-events: none;
+}
+
+.usuario-formulario button {
+  margin: 0 auto;
+}
+
+.usuario-formulario p {
+  grid-column: 1/-1;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.usuario-formulario p span {
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .usuario-formulario {
+    padding: 20px;
+  }
+}

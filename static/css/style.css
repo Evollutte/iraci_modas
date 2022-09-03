@@ -1,0 +1,27 @@
+/* Global */
+@import "./global/global.css";
+@import "./utilidades/tipografia.css";
+@import "./utilidades/cores.css";
+
+@import "./global/header.css";
+@import "./global/footer.css";
+
+/* Utilidades */
+@import "./utilidades/componentes.css";
+@import "./utilidades/formulario.css";
+@import "./utilidades/slide.css";
+@import "./utilidades/animacao.css";
+
+/* Home */
+@import "./home/introducao.css";
+
+/* Contato */
+@import "./contato/contato.css";
+
+/* Usuário */
+@import "./usuario/usuario.css";
+
+/* Galeria */
+@import "./galeria/galeria.css";
+@import "./galeria/filtro.css";
+@import "./galeria/paginacao.css";

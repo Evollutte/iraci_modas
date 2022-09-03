@@ -1,0 +1,107 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form label {
+  display: block;
+  font: 600 1rem/1.5 "Poppins" sans-serif;
+  margin-bottom: 4px;
+}
+
+/*
+#div_id_first_name,
+#div_id_last_name,
+*/
+
+.form .col-2,
+#div_id_email,
+#div_id_genero,
+#div_id_password1,
+#div_id_password2,
+#div_id_login,
+#div_id_password {
+  grid-column: span 2;
+}
+
+.form input[type="text"],
+.form input[type="tel"],
+.form input[type="email"],
+.form input[type="date"],
+.form input[type="radio"],
+.form input[type="password"],
+.form textarea {
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  background: var(--cor-1);
+  border: 1px solid var(--cor-2);
+  padding: 12px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form input[type="text"]:focus,
+.form input[type="tel"]:focus,
+.form input[type="email"]:focus,
+.form input[type="date"]:focus,
+.form input[type="radio"],
+.form input[type="password"]:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--cor-i-0);
+  background: var(--cor-0);
+  box-shadow: 0 0 0 1px rgba(37, 29, 29, 0.5);
+}
+
+.form fieldset[type="text"],
+.form fieldset[type="tel"],
+.form fieldset[type="email"],
+.form fieldset[type="date"],
+.form fieldset[type="radio"],
+.form fieldset[type="password"] {
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  background: var(--cor-1);
+  border: 1px solid var(--cor-2);
+  padding: 12px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form fieldset[type="text"]:focus,
+.form fieldset[type="tel"]:focus,
+.form fieldset[type="email"]:focus,
+.form fieldset[type="date"]:focus,
+.form fieldset[type="radio"],
+.form fieldset[type="password"]:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--cor-i-0);
+  background: var(--cor-0);
+  box-shadow: 0 0 0 1px rgba(37, 29, 29, 0.5);
+}
+
+@media (max-width: 600px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+  .form .col-2,
+  #div_id_email,
+  #div_id_genero,
+  #div_id_password1,
+  #div_id_password2,
+  #div_id_login,
+  #div_id_password {
+    grid-column: 1;
+  }
+}
+
+.form a {
+  color: var(--cor-10);
+  font-weight: bold;
+}
+
+.input_placeholder::placeholder {
+  color: var(--cor-12);
+}
