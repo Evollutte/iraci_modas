@@ -3,6 +3,7 @@ from django import forms as as_forms
 from django.contrib.auth import forms
 
 from .models import User, GENRE
+from .validate import validate_CPF
 
 
 class UserChangeForm(forms.UserChangeForm):
@@ -20,7 +21,7 @@ class MyCustomSignupForm(SignupForm):
   last_name = as_forms.CharField(label='Sobrenome')
   genre = as_forms.CharField(label='Gênero')
   birth_date = as_forms.CharField(label='Data de Nascimento')
-  cpf = as_forms.CharField(label='CPF')
+  cpf = as_forms.CharField(label='CPF', validators=[validate_CPF])
   address = as_forms.CharField(label="Endereço")
   telephone = as_forms.CharField(label='Telefone')
   zip_code = as_forms.CharField(label="CEP")
@@ -41,7 +42,7 @@ class MyCustomSignupForm(SignupForm):
   def save(self, request):
     user = super(MyCustomSignupForm, self).save(request)
     user.first_name = self.cleaned_data['first_name']
-    user.username = user.first_name.capitalize()
+    user.username = user.username.capitalize()
     user.last_name = self.cleaned_data['last_name']
     user.genre = self.cleaned_data['genre']
     user.birth_date = self.cleaned_data['birth_date']

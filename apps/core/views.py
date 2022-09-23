@@ -71,8 +71,8 @@ def contato_sobre(request):
       dice['nome'],
       'Remetente: ' + dice['email'] + '\n\n' + 'Telefone: ' + dice['telefone'] + '\n\n' + 'Mensagem: ' + dice['mensagem'],
       '',
-      # [settings.EMAIL_HOST_USER],
-      [settings.EMAIL_BACKEND],
+      [settings.EMAIL_HOST_USER],
+      # [settings.EMAIL_BACKEND],
     )
     return redirect('/')
   return render(request, 'core/contato.html', dice)

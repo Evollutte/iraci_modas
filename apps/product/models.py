@@ -28,7 +28,7 @@ class Product(models.Model):
   description = models.TextField(verbose_name='Descrição')
   amount = models.DecimalField(max_digits=100, decimal_places=0, verbose_name='Quantidade')
   price = models.DecimalField(max_digits=100, decimal_places=0, verbose_name='Preço')
-  image_url = models.URLField(max_length=1024, blank=True, null=True)
+  # image_url = models.URLField(max_length=1024, blank=True, null=True)
   image = models.ImageField(upload_to='product/')
   favorite = models.ManyToManyField(User, blank=True, related_name='favorite', verbose_name='Favorito')
 
