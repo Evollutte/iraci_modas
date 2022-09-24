@@ -134,7 +134,7 @@ EMAIL_HOST_PASSWORD = 'rqdptrolyqbxsyyg'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-DEFAULT_FROM_EMAIL = 'Iraci Modas! <iracimodas@gmail.com>'
+DEFAULT_FROM_EMAIL = 'Iraci Modas! <iraciimodas@gmail.com>'
 
 # Django-allauth
 AUTHENTICATION_BACKENDS = [
