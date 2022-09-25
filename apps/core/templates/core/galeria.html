@@ -78,7 +78,7 @@
       {% for product in product %}
       <li>
         <a href="{% url 'sobre-produto' product.pk %}">
-          <img src="{{ product.image.url }}" alt="home1" width="400" height="1040">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" width="400" height="1040">
           <h3 class="font-1-xl">{{ product.name }}</h3>
           <span class="font-2-m cor-8">{{ product.category }}</span>
           <span class="font-2-m cor-8">{{ product.price }}</span>
