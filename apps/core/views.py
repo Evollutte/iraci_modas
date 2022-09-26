@@ -28,32 +28,32 @@ def paginators(request, objects, amount):
   
 
 def home(request):
-  product = Product.objects.all()[:8] # Quantidade itens que vai ser mostrado
-  product = paginators(request, product, 2) # Mostra 8 produtos por página
+  product = Product.objects.all() #[:8] Quantidade itens que vai ser mostrado
+  product = paginators(request, product, 3) # Mostra 8 produtos por página
   banner = Banner.objects.all()
   return render(request, 'core/index.html', {'product':product, 'banner':banner})
 
 
 def galeria_todos(request):
-  product = Product.objects.all()[:8] # Quantidade itens que vai ser mostrado
+  product = Product.objects.all()
   product = paginators(request, product, 8) # Mostra 8 produtos por página
   return render(request, 'core/galeria.html', {'product':product})
 
 
 def galeria_masculino(request):
-  product = Product.objects.filter(category='Masculino')[:8] # Quantidade itens que vai ser mostrado
+  product = Product.objects.filter(category='Masculino')
   product = paginators(request, product, 8) # Mostra 8 produtos por página
   return render(request, 'core/galeria.html', {'product':product})
 
 
 def galeria_feminino(request):
-  product = Product.objects.filter(category='Feminino')[:8] # Quantidade itens que vai ser mostrado
+  product = Product.objects.filter(category='Feminino')
   product = paginators(request, product, 8) # Mostra 8 produtos por página
   return render(request, 'core/galeria.html', {'product':product})
 
 
 def galeria_infantil(request):
-  product = Product.objects.filter(category='Infantil')[:8] # Quantidade itens que vai ser mostrado
+  product = Product.objects.filter(category='Infantil')
   product = paginators(request, product, 8) # Mostra 8 produtos por página
   return render(request, 'core/galeria.html', {'product':product})
 

@@ -8,6 +8,12 @@
   height: 376.469px !important;
 }
 
+#sobre-produto picture img,
+#sobre_produto_favorito picture img {
+  width: 419.5px !important;
+  height: 669.59px !important;
+}
+
 .galeria-lista h2 {
   margin-bottom: 40px;
 }
